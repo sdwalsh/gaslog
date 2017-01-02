@@ -16,12 +16,12 @@ type Datastore interface {
 	GetLogsByUser(string) (*[]Logs, error)
 	InsertLog(string) (*Logs, error)
 	UpdateLog(string) (*Logs, error)
-	DeleteLog(string) error
+	//DeleteLog(string) error
 
 	GetEntriesByUser(string) (*[]Entry, error)
 	GetEntriedByLog(string) (*[]Entry, error)
 	InsertEntry(string, *big.Int, float64, float64, string) (*Entry, error)
-	DeleteEntry(string) error
+	//DeleteEntry(string) error
 }
 
 type Data struct {
