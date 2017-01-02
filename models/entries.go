@@ -1,21 +1,18 @@
 package models
 
-import (
-	"math/big"
-	"time"
-)
+import "time"
 
 type Entry struct {
 	Id              string    `db:"id"`
 	LogBook         string    `db:"log_book_id"`
 	Created_at      time.Time `db:"created_at"`
-	Miles           int64  		`db:"miles"`
+	Miles           int64     `db:"miles"`
 	Cost_per_gallon float64   `db:"cost_per_gallon"`
 	Cost_total      float64   `db:"cost_total"`
 	Location        string    `db:"location"`
 }
 
-func (db *Data) GetEntryById(id string) (*Entry, error)
+func (db *Data) GetEntryById(id string) (*Entry, error) {
 	c := Entry
 	err := db.Select(&c, "SELECT * FROM log_entry WHERE id = $1", id)
 	if err != nil {
